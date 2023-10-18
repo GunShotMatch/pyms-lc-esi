@@ -1,0 +1,42 @@
+# Configuration for 'repo_helper' (https://github.com/repo-helper/repo_helper)
+---
+modname: 'pyms-lc-esi'
+copyright_years: '2020-2023'
+author: 'Dominic Davis-Foster'
+email: 'dominic@davis-foster.co.uk'
+username: "GunShotMatch"
+assignee: "domdfcoding"
+version: '0.0.0'
+license: 'MIT'
+short_desc: 'PyMassSpec extension for LC-ESI-MS data processing.'
+
+enable_conda: false
+enable_tests: false
+
+use_whey: true
+
+python_versions:
+ 3.8:
+ 3.9:
+ "3.10":
+ "3.11":
+
+sphinx_html_theme: furo
+
+classifiers:
+ - 'Development Status :: 3 - Alpha'
+ - 'Intended Audience :: Developers'
+ - 'Topic :: Software Development :: Libraries :: Python Modules'
+
+# extra_sphinx_extensions:
+#   - enum_tools.autoenum
+#   - attr_utils.autoattrs
+#   - remove_factory_defaults
+
+sphinx_conf_epilogue:
+  - nitpicky = True
+  # - toctree_plus_types.update({"method", "attribute"})
+
+# additional_ignore:
+#  - old/*
+#  - .vscode/*
