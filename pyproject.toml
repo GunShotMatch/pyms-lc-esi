@@ -7,7 +7,7 @@ name = "pyms-lc-esi"
 version = "0.0.0"
 description = "PyMassSpec extension for LC-ESI-MS data processing."
 readme = "README.rst"
-keywords = []
+keywords = [ "chemistry", "ESI", "LCMS", "PyMassSpec", "pyms",]
 dynamic = [ "requires-python", "classifiers", "dependencies",]
 
 [[project.authors]]
@@ -37,6 +37,7 @@ license-key = "MIT"
 package = "pyms_lc_esi"
 
 [tool.importcheck]
+always = [ "pyms_lc_esi", "pyms_lc_esi.adducts", "pyms_lc_esi.peak_finder", "pyms_lc_esi.spectra",]
 
 [tool.sphinx-pyproject]
 github_username = "GunShotMatch"
@@ -134,6 +135,10 @@ order = 10
 [tool.dependency-dash."doc-source/requirements.txt"]
 order = 30
 include = false
+
+[tool.dep_checker.name_mapping]
+attrs = "attr"
+pymassspec = "pyms"
 
 [tool.snippet-fmt.languages.python]
 reformat = true

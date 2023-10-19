@@ -21,6 +21,13 @@ python_versions:
  "3.10":
  "3.11":
 
+keywords:
+  - PyMassSpec
+  - pyms
+  - ESI
+  - LCMS
+  - chemistry
+
 sphinx_html_theme: furo
 
 classifiers:
