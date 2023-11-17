@@ -1,15 +1,43 @@
+#!/usr/bin/env python3
+#
+#  peak_finder.py
+"""
+Find peaks in LC-ESI-MS data.
+"""
+#
+#  Copyright © 2020-2023 Dominic Davis-Foster <dominic@davis-foster.co.uk>
+#
+#  Permission is hereby granted, free of charge, to any person obtaining a copy
+#  of this software and associated documentation files (the "Software"), to deal
+#  in the Software without restriction, including without limitation the rights
+#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#  copies of the Software, and to permit persons to whom the Software is
+#  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in all
+#  copies or substantial portions of the Software.
+#
+#  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+#  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+#  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+#  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+#  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+#  OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+#  OR OTHER DEALINGS IN THE SOFTWARE.
+#
+
 # stdlib
 from itertools import chain
-from typing import Iterable, Iterator, Tuple
+from typing import Iterable, Iterator, List, Tuple
 
 # 3rd party
 from chemistry_tools.formulae import Formula
 from domdf_python_tools.words import word_join
-from pyms.BillerBiemann import get_maxima_indices, num_ions_threshold
-from pyms.eic import ExtractedIntensityMatrix, build_extracted_intensity_matrix
-from pyms.IntensityMatrix import IntensityMatrix
-from pyms.Noise.Analysis import window_analyzer
-from pyms.Peak import Peak
+from pyms.BillerBiemann import get_maxima_indices, num_ions_threshold  # type: ignore[import]
+from pyms.eic import ExtractedIntensityMatrix, build_extracted_intensity_matrix  # type: ignore[import]
+from pyms.IntensityMatrix import IntensityMatrix  # type: ignore[import]
+from pyms.Noise.Analysis import window_analyzer  # type: ignore[import]
+from pyms.Peak import Peak  # type: ignore[import]
 
 # this package
 from pyms_lc_esi.adducts import Adduct, get_adduct_spectra
@@ -72,7 +100,7 @@ def sum_area(
 	return area, left_bound, right_bound
 
 
-def peaks_from_maxima(e_im: ExtractedIntensityMatrix, points=3):
+def peaks_from_maxima(e_im: ExtractedIntensityMatrix, points: int = 3) -> List[Peak]:
 	"""
 
 	:param e_im:
@@ -103,7 +131,7 @@ def make_im_for_adducts(
 		adducts: Iterable[Adduct],
 		left_bound: float = 0.1,
 		right_bound: float = 0.1,
-		):
+		) -> ExtractedIntensityMatrix:
 	"""
 	Conxtructs a :class:`pyms.eic.ExtractedIntensityMatrix` for the given adducts of the analyte.
 
@@ -127,6 +155,11 @@ def make_im_for_adducts(
 
 
 def peak_finder(e_im: ExtractedIntensityMatrix, points: int = 3) -> Iterator[Peak]:
+	"""
+
+	:param e_im:
+	:param points:
+	"""
 
 	# Find peaks
 	# peaks = BillerBiemann(e_im, points=8, scans=3)

@@ -33,7 +33,7 @@ from typing import Dict, Iterable, Literal, Union
 import attr
 from chemistry_tools.elements import ELEMENTS
 from chemistry_tools.formulae import Formula
-from pyms.Spectrum import MassSpectrum
+from pyms.Spectrum import MassSpectrum  # type: ignore[import]
 
 # this package
 from pyms_lc_esi.spectra import iso_dist_2_mass_spec
@@ -63,11 +63,13 @@ def _operation_validator(instance, attribute, value: Literal["add", "sub"]) -> L
 	if not isinstance(value, str):
 		raise TypeError(f"operation must be a string, not {type(value)}")
 
-	value = value.lower().strip()
-	if value not in {"add", "sub"}:
-		raise ValueError(f"Unsupported operation {value}")
-
-	return value
+	stripped_value = value.lower().strip()
+	if stripped_value == "add":
+		return "add"
+	elif stripped_value == "sub":
+		return "sub"
+	else:
+		raise ValueError(f"Unsupported operation {stripped_value}")
 
 
 @attr.s
@@ -106,10 +108,10 @@ class Adduct:
 		elif self.operation == "sub":
 			return formula - self.formula
 
-	def __format__(self, format_spec):
+	def __format__(self, format_spec: str) -> str:
 		return self.name % format_spec
 
-	def __mod__(self, other):
+	def __mod__(self, other) -> str:
 		return self.name % other
 
 
