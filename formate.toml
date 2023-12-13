@@ -31,5 +31,5 @@ lines_between_types = 0
 use_parentheses = true
 remove_redundant_aliases = true
 default_section = "THIRDPARTY"
-known_third_party = [ "attrs", "chemistry_tools", "pymassspec",]
+known_third_party = [ "attrs", "chemistry_tools", "domdf_python_tools", "pymassspec",]
 known_first_party = "pyms_lc_esi"
