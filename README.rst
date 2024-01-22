@@ -19,10 +19,8 @@ pyms-lc-esi
 	  - |docs| |docs_check|
 	* - Tests
 	  - |actions_linux| |actions_windows| |actions_macos|
-	* - PyPI
-	  - |pypi-version| |supported-versions| |supported-implementations| |wheel|
 	* - Activity
-	  - |commits-latest| |commits-since| |maintained| |pypi-downloads|
+	  - |commits-latest| |commits-since| |maintained|
 	* - QA
 	  - |codefactor| |actions_flake8| |actions_mypy|
 	* - Other
@@ -64,22 +62,6 @@ pyms-lc-esi
 	:target: https://www.codefactor.io/repository/github/GunShotMatch/pyms-lc-esi
 	:alt: CodeFactor Grade
 
-.. |pypi-version| image:: https://img.shields.io/pypi/v/pyms-lc-esi
-	:target: https://pypi.org/project/pyms-lc-esi/
-	:alt: PyPI - Package Version
-
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/pyms-lc-esi?logo=python&logoColor=white
-	:target: https://pypi.org/project/pyms-lc-esi/
-	:alt: PyPI - Supported Python Versions
-
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/pyms-lc-esi
-	:target: https://pypi.org/project/pyms-lc-esi/
-	:alt: PyPI - Supported Implementations
-
-.. |wheel| image:: https://img.shields.io/pypi/wheel/pyms-lc-esi
-	:target: https://pypi.org/project/pyms-lc-esi/
-	:alt: PyPI - Wheel
-
 .. |license| image:: https://img.shields.io/github/license/GunShotMatch/pyms-lc-esi
 	:target: https://github.com/GunShotMatch/pyms-lc-esi/blob/master/LICENSE
 	:alt: License
@@ -95,12 +77,8 @@ pyms-lc-esi
 	:target: https://github.com/GunShotMatch/pyms-lc-esi/commit/master
 	:alt: GitHub last commit
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2023
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2024
 	:alt: Maintenance
-
-.. |pypi-downloads| image:: https://img.shields.io/pypi/dm/pyms-lc-esi
-	:target: https://pypi.org/project/pyms-lc-esi/
-	:alt: PyPI - Downloads
 
 .. end shields
 
@@ -109,12 +87,12 @@ Installation
 
 .. start installation
 
-``pyms-lc-esi`` can be installed from PyPI.
+``pyms-lc-esi`` can be installed from GitHub.
 
 To install with ``pip``:
 
 .. code-block:: bash
 
-	$ python -m pip install pyms-lc-esi
+	$ python -m pip install git+https://github.com/GunShotMatch/pyms-lc-esi
 
 .. end installation

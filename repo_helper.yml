@@ -12,6 +12,7 @@ short_desc: 'PyMassSpec extension for LC-ESI-MS data processing.'
 
 enable_conda: false
 enable_tests: false
+on_pypi: false
 
 use_whey: true
 
