@@ -39,7 +39,7 @@ from chemistry_tools.formulae import IsotopeDistribution
 # from pyms import Peak
 # from pyms.IntensityMatrix import BaseIntensityMatrix
 # from pyms.Spectrum import CompositeMassSpectrum, MassSpectrum, normalize_mass_spec
-from pyms.Spectrum import MassSpectrum  # type: ignore[import]
+from pyms.Spectrum import MassSpectrum
 
 __all__ = ["iso_dist_2_mass_spec"]
 

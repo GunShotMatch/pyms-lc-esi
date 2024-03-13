@@ -33,11 +33,11 @@ from typing import Iterable, Iterator, List, Tuple
 # 3rd party
 from chemistry_tools.formulae import Formula
 from domdf_python_tools.words import word_join
-from pyms.BillerBiemann import get_maxima_indices, num_ions_threshold  # type: ignore[import]
-from pyms.eic import ExtractedIntensityMatrix, build_extracted_intensity_matrix  # type: ignore[import]
-from pyms.IntensityMatrix import IntensityMatrix  # type: ignore[import]
-from pyms.Noise.Analysis import window_analyzer  # type: ignore[import]
-from pyms.Peak import Peak  # type: ignore[import]
+from pyms.BillerBiemann import get_maxima_indices, num_ions_threshold
+from pyms.eic import ExtractedIntensityMatrix, build_extracted_intensity_matrix
+from pyms.IntensityMatrix import IntensityMatrix
+from pyms.Noise.Analysis import window_analyzer
+from pyms.Peak import Peak
 
 # this package
 from pyms_lc_esi.adducts import Adduct, get_adduct_spectra
@@ -185,7 +185,7 @@ def peak_finder(e_im: ExtractedIntensityMatrix, points: int = 3) -> Iterator[Pea
 		peak.area, left_bound, right_bound = sum_area(apex_index, e_im)
 
 		# Assign bounds to peak as offsets.
-		peak.bounds = [apex_index - left_bound, apex_index, right_bound - apex_index]
+		peak.bounds = (apex_index - left_bound, apex_index, right_bound - apex_index)
 
 		if (right_bound - left_bound) > 3 and peak.area > 1000:
 			# TODO: make 1000 dependent on data

@@ -33,7 +33,7 @@ from typing import Dict, Iterable, Literal, Union
 import attr
 from chemistry_tools.elements import ELEMENTS
 from chemistry_tools.formulae import Formula
-from pyms.Spectrum import MassSpectrum  # type: ignore[import]
+from pyms.Spectrum import MassSpectrum
 
 # this package
 from pyms_lc_esi.spectra import iso_dist_2_mass_spec
@@ -59,7 +59,7 @@ def _formula_converter(formula: Union[Dict[str, int], Formula, str]) -> Formula:
 		raise TypeError(f"Unsupported type for formula: {type(formula)}")
 
 
-def _operation_validator(instance, attribute, value: Literal["add", "sub"]) -> Literal["add", "sub"]:
+def _operation_validator(instance: "Adduct", attribute: attr.Attribute, value: Literal["add", "sub"]) -> Literal["add", "sub"]:
 	if not isinstance(value, str):
 		raise TypeError(f"operation must be a string, not {type(value)}")
 
@@ -111,7 +111,7 @@ class Adduct:
 	def __format__(self, format_spec: str) -> str:
 		return self.name % format_spec
 
-	def __mod__(self, other) -> str:
+	def __mod__(self, other: str) -> str:
 		return self.name % other
 
 
