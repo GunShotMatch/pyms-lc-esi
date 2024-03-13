@@ -32,4 +32,4 @@ use_parentheses = true
 remove_redundant_aliases = true
 default_section = "THIRDPARTY"
 known_third_party = [ "attrs", "chemistry_tools", "domdf_python_tools", "pymassspec",]
-known_first_party = "pyms_lc_esi"
+known_first_party = [ "pyms_lc_esi",]
