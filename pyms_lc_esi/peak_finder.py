@@ -102,6 +102,7 @@ def sum_area(
 
 def peaks_from_maxima(e_im: ExtractedIntensityMatrix, points: int = 3) -> List[Peak]:
 	"""
+	Returns a list of peaks from maxima in the extracted intensity matrix.
 
 	:param e_im:
 	:param points:
@@ -156,6 +157,7 @@ def make_im_for_adducts(
 
 def peak_finder(e_im: ExtractedIntensityMatrix, points: int = 3) -> Iterator[Peak]:
 	"""
+	Find and filter peaks in the extracted intensity matrix, and calculate peak areas.
 
 	:param e_im:
 	:param points:
