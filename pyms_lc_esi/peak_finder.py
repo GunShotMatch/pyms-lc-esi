@@ -183,6 +183,7 @@ def peak_finder(e_im: ExtractedIntensityMatrix, points: int = 3) -> Iterator[Pea
 
 		# Estimate peak area
 		peak.area, left_bound, right_bound = sum_area(apex_index, e_im)
+		assert peak.area is not None
 
 		# Assign bounds to peak as offsets.
 		peak.bounds = (apex_index - left_bound, apex_index, right_bound - apex_index)
